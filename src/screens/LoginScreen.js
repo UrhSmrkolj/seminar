@@ -42,7 +42,7 @@ export default function LoginScreen({ navigation }) {
     <Background>
       <BackButton goBack={navigation.goBack} />
       <Logo />
-      <Header>Welcome back.</Header>
+      <Header>Prijavite se:</Header>
       <TextInput
         label="Email"
         returnKeyType="next"
@@ -56,7 +56,7 @@ export default function LoginScreen({ navigation }) {
         keyboardType="email-address"
       />
       <TextInput
-        label="Password"
+        label="Geslo"
         returnKeyType="done"
         value={password.value}
         onChangeText={(text) => setPassword({ value: text, error: '' })}
@@ -68,16 +68,16 @@ export default function LoginScreen({ navigation }) {
         <TouchableOpacity
           onPress={() => navigation.navigate('ResetPasswordScreen')}
         >
-          <Text style={styles.forgot}>Forgot your password?</Text>
+          <Text style={styles.forgot}>Ste pozabili geslo?</Text>
         </TouchableOpacity>
       </View>
       <Button loading={loading} mode="contained" onPress={onLoginPressed}>
-        Login
+        PRIJAVA
       </Button>
       <View style={styles.row}>
-        <Text>Don’t have an account? </Text>
+        <Text>Še nimaš računa? </Text>
         <TouchableOpacity onPress={() => navigation.replace('RegisterScreen')}>
-          <Text style={styles.link}>Sign up</Text>
+          <Text style={styles.link}>Registracija</Text>
         </TouchableOpacity>
       </View>
       <Toast message={error} onDismiss={() => setError('')} />

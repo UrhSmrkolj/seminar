@@ -27,7 +27,7 @@ export default function ResetPasswordScreen({ navigation }) {
     } else {
       setToast({
         type: 'success',
-        message: 'Email with password has been sent.',
+        message: 'Poslano',
       })
     }
     setLoading(false)
@@ -37,9 +37,9 @@ export default function ResetPasswordScreen({ navigation }) {
     <Background>
       <BackButton goBack={navigation.goBack} />
       <Logo />
-      <Header>Restore Password</Header>
+      <Header>Pridobi novo geslo</Header>
       <TextInput
-        label="E-mail address"
+        label="Email naslov"
         returnKeyType="done"
         value={email.value}
         onChangeText={(text) => setEmail({ value: text, error: '' })}
@@ -49,7 +49,7 @@ export default function ResetPasswordScreen({ navigation }) {
         autoCompleteType="email"
         textContentType="emailAddress"
         keyboardType="email-address"
-        description="You will receive email with password reset link."
+        description="Poslali vam bomo novo geslo."
       />
       <Button
         loading={loading}
@@ -57,7 +57,7 @@ export default function ResetPasswordScreen({ navigation }) {
         onPress={sendResetPasswordEmail}
         style={{ marginTop: 16 }}
       >
-        Send Instructions
+        POŠLJI
       </Button>
       <Toast {...toast} onDismiss={() => setToast({ value: '', type: '' })} />
     </Background>

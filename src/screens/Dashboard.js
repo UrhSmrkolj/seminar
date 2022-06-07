@@ -17,19 +17,19 @@ function getUsername(){
   const username = firebase.auth().currentUser.displayName;
   const email = firebase.auth().currentUser.email;
 
-  alert("Your username: " + username + "\nYour email: " + email)
+  alert("Uporabniško ime: " + username + "\nEmail: " + email)
 }
 
 function HomeScreen() {
   return (
   <Background>
     <Logo />
-    <Header>Screen za ligaško lestvico.</Header>
+    <Header></Header>
     <Button mode="outlined" onPress={showClubs1}>
-        1
+        1. Liga
     </Button>
     <Button mode="outlined" onPress={showClubs2}>
-        2
+        2. Liga
     </Button>
   </Background>
   );
@@ -39,12 +39,12 @@ function SettingsScreen() {
   return (
     <Background>
       <Logo />
-      <Header>User screen</Header>
+      <Header></Header>
       <Button mode="outlined" onPress={getUsername}>
-        User info
+        Informacije
       </Button>
       <Button mode="outlined" onPress={logoutUser}>
-        Logout
+        Odjava
       </Button>
     </Background>
   );
@@ -54,12 +54,12 @@ function PlayersScreen() {
   return (
   <Background>
     <Logo />
-    <Header>Screen za lestvico strelcev.</Header>
+    <Header></Header>
     <Button mode="outlined" onPress={showScorers1}>
-        1
+        1. Liga
     </Button>
     <Button mode="outlined" onPress={showScorers2}>
-        2
+        2. Liga
     </Button>
   </Background>
   );
@@ -114,7 +114,7 @@ if (request.status === 200) {
       cancelable: true,
       onDismiss: () =>
         Alert.alert(
-          "This alert was dismissed by tapping outside of the alert dialog."
+          "Za izhod pritisni 'nazaj'."
         ),
     }
   );
@@ -125,7 +125,7 @@ if (request.status === 200) {
 };
 
 
-request.open('GET', 'http://' + ip + '/main/igraAPI/lestvica_strelci/1');
+request.open('GET', 'http://' + ip + '/Trim-liga-spletna-aplikacija/ligaAPI/lestvica_strelci/1');
 request.send();
 
 
@@ -183,7 +183,7 @@ if (request.status === 200) {
 };
 
 
-request.open('GET', 'http://' + ip + '/main/igraAPI/lestvica_strelci/2');
+request.open('GET', 'http://' + ip + '/Trim-liga-spletna-aplikacija/ligaAPI/lestvica_strelci/2');
 request.send();
 
 
@@ -210,11 +210,11 @@ if (request.status === 200) {
   //console.log('success', request.responseText);
   let odgovorJSON = JSON.parse(request.responseText);
   let count = odgovorJSON.length;
-  let tabela = "    KLUB   TOČKE";
+  let tabela = "#   KLUB       TOČKE";
 
   for(let i=0;i<count;i++){
     let mesto = i + 1;
-    tabela = tabela + "\n" + mesto.toString() + "." + " " + odgovorJSON[i].klub + "   " + odgovorJSON[i].točke;
+    tabela = tabela + "\n" + mesto.toString() + "." + "  " + odgovorJSON[i].klub + "   " + odgovorJSON[i].točke;
   }
 
   Alert.alert(
@@ -240,7 +240,7 @@ if (request.status === 200) {
 }
 };
 //change IP
-request.open('GET', 'http://' + ip + '/main/igraAPI/lestvica_liga/1');
+request.open('GET', 'http://' + ip + '/Trim-liga-spletna-aplikacija/ligaAPI/lestvica_liga/1');
 request.send();
 
 }
@@ -297,7 +297,7 @@ if (request.status === 200) {
 }
 };
 //change IP
-request.open('GET', 'http://' + ip + '/main/igraAPI/lestvica_liga/2');
+request.open('GET', 'http://' + ip + '/Trim-liga-spletna-aplikacija/ligaAPI/lestvica_liga/2');
 request.send();
 
 }
@@ -314,15 +314,15 @@ export default function Dashboard() {
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
 
-            if (route.name === 'Home') {
+            if (route.name === 'Lestvica') {
               iconName = focused
                 ? 'ios-football'
                 : 'ios-football-outline';
-            } else if (route.name === 'Players') {
+            } else if (route.name === 'Strelci') {
               iconName = focused 
               ? 'ios-man' 
               : 'ios-man-outline';
-            } else if (route.name == 'Settings') {
+            } else if (route.name == 'Nastavitve') {
               iconName = focused 
               ? 'ios-settings' 
               : 'ios-settings-outline';
@@ -335,9 +335,9 @@ export default function Dashboard() {
           tabBarInactiveTintColor: 'gray',
         })}
       >
-        <Tab.Screen name="Home" component={HomeScreen}></Tab.Screen>
-        <Tab.Screen name="Players" component={PlayersScreen}></Tab.Screen>
-        <Tab.Screen name="Settings" component={SettingsScreen}></Tab.Screen>
+        <Tab.Screen name="Lestvica" component={HomeScreen}></Tab.Screen>
+        <Tab.Screen name="Strelci" component={PlayersScreen}></Tab.Screen>
+        <Tab.Screen name="Nastavitve" component={SettingsScreen}></Tab.Screen>
       </Tab.Navigator>
     </NavigationContainer>
   );
