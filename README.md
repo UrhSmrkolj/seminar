@@ -10,6 +10,18 @@ https://expo.dev/
 ## create an app (expo x react)
 https://docs.expo.dev/get-started/create-a-new-app/
 
+## CHANGES YOU NEED TO MAKE IN YOUR APP
+### CHANGE IP ADD. (for IP add. of your MySQL base)
+#### in /screens/Dashboard.js line 77
+![image](https://user-images.githubusercontent.com/53468923/173684175-2601e901-a59c-4c95-828f-392f8fcf17a4.png)
+
+### CHANGE Firebase config data
+#### in /core/config.js
+![image](https://user-images.githubusercontent.com/53468923/173684776-16fc2d72-bfff-4f54-8462-801427c83869.png)
+
+### +
+#### install all dependencies
+
 ### App screens
  ## Start
  ![začetna](https://user-images.githubusercontent.com/53468923/173677197-9bf3e017-bfb1-41fc-a9d0-26996f2af4a0.jpg)
