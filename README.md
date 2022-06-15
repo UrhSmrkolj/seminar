@@ -23,6 +23,7 @@ https://docs.expo.dev/get-started/create-a-new-app/
 #### install all dependencies
 
 ## To use Firebase
+```bash
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
@@ -44,6 +45,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+```
 
 ### App screens
  ## Start
