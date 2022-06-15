@@ -22,6 +22,29 @@ https://docs.expo.dev/get-started/create-a-new-app/
 ### +
 #### install all dependencies
 
+## To use Firebase
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "-",
+  authDomain: "-",
+  projectId: "-",
+  storageBucket: "-",
+  messagingSenderId: "-",
+  appId: "-",
+  measurementId: "-"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
 ### App screens
  ## Start
  ![začetna](https://user-images.githubusercontent.com/53468923/173677197-9bf3e017-bfb1-41fc-a9d0-26996f2af4a0.jpg)
